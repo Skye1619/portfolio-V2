@@ -10,27 +10,26 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import Carousel from "./Carousel";
 
 function Home() {
-
-  const [prevnext, setPrevnext] = useState(['PREV', 'NEXT'])
-  const [wid, setWid] = useState(window.innerWidth)
+  const [prevnext, setPrevnext] = useState(["PREV", "NEXT"]);
+  const [wid, setWid] = useState(window.innerWidth);
 
   const handleResize = () => {
-    setWid(window.innerWidth)
-  }
-  
+    setWid(window.innerWidth);
+  };
+
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    
+    window.addEventListener("resize", handleResize);
+
     if (wid <= 545) {
-      setPrevnext('', '')
+      setPrevnext("", "");
     } else {
-      setPrevnext(['PREV', 'NEXT'])
+      setPrevnext(["PREV", "NEXT"]);
     }
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [wid])
+  }, [wid]);
 
   const contactClick = (operation) => {
     if (operation === "gmail") {

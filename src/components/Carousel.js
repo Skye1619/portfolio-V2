@@ -215,9 +215,9 @@ function Carousel() {
                 2020 - Present
               </Typography>
               <hr />
-              <Typography variant="h6" textAlign='center' color='#faae41'>
-                    Richburg Corporation
-                    </Typography>
+              <Typography variant="h6" textAlign="center" color="#faae41">
+                Richburg Corporation
+              </Typography>
               <Typography variant="p" textAlign="center">
                 Appliances Technician
               </Typography>
@@ -225,13 +225,16 @@ function Carousel() {
                 2017 - 2020
               </Typography>
             </div>
-            <Typography variant="h5" textAlign="center" marginTop='10px'>
+            <Typography variant="h5" textAlign="center" marginTop="10px">
               Credit
             </Typography>
             <div className="creditContainer">
-                    <Typography variant="p" textAlign="center">
-                    Icons are made from <a href="https://www.flaticon.com/" target="_blank">Flaticon.com</a>
-                    </Typography>
+              <Typography variant="p" textAlign="center">
+                Icons are made from{" "}
+                <a href="https://www.flaticon.com/" target="_blank">
+                  Flaticon.com
+                </a>
+              </Typography>
             </div>
           </div>
         </div>
