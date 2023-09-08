@@ -1,38 +1,347 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: azure;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.portfolioRoot {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.homeRootContainer {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.profileContainer, .bodyContainer {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.profileContainer {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bodyContainer {
+  height: 100%;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pictureContainer {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  height: 225px;
+}
+.profilePic {
+  width: 60%;
+  min-width: 150px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  border: 3px solid #26216199;
+}
+.profilePic:hover {
+  width: 65%;
+  cursor: pointer;
+}
+.name {
+  color: #faae41;
+}
+
+.contactContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 90px) minmax(160px, 1fr);
+  row-gap: 16px;
+  margin-top: 10px;
+}
+
+.contactContainer > img {
+  width: 30px;
+  justify-self: end;
+}
+.contactContainer > span {
+  justify-self: start;
+  align-self: center;
+  margin-left: 16px;
+}
+
+.contactContainer > *:hover {
+  color: #faae41;
+  cursor: pointer;
+}
+.contactContainer > img:hover + span {
+  color: #faae41;
+}
+
+#prevButton,
+#nextButton {
+  position: absolute;
+  z-index: 20;
+}
+#prevButton {
+  left: 10px;
+}
+#nextButton {
+  right: 10px;
+}
+
+.myItem {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none !important;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+.carouselRoot {
+  width: 100%;
+  height: 100%;
+  padding: 0 62px;
+}
+
+.icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100px;
+  background: #262161 !important;
+  padding: 5px 0;
+  border-radius: 10px;
+  height: 70px;
 }
 
-.App-link {
-  color: #61dafb;
+.icon > img {
+  margin-bottom: 5px;
+  width: 35px;
+  transition: all 0.15s ease-in-out;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+.icon:hover > img {
+  width: 40px;
+}
+
+.skillsContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  row-gap: 21px;
+  padding: 0 30px;
+}
+
+.carouselRoot,
+.carousel-inner,
+.carousel,
+.myItem {
+  height: 100% !important;
+}
+
+.project > img {
+  height: calc(100% - 4rem);
+  width: 100%;
+  object-fit: cover;
+}
+.project {
+  background: #262161;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 240px;
+}
+
+.project:hover > h6 {
+  color: #faae41 !important;
+}
+
+.projectContainer {
+  padding: 0 50px;
+  display: grid;
+  gap: 21px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.profilePicDetails {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.certificateContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 0 25px;
+}
+
+.certificate {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.certificateImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.workContainer,
+.creditContainer,
+.educationContainer {
+  display: flex;
+  flex-direction: column;
+  background: #26216177;
+  padding: 10px;
+  border-radius: 16px;
+  margin: 0 16px;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .skillsContainer {
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+  .icon:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 1126px) {
+  .projectContainer > a:last-child {
+    grid-column: 1 / -1;
+    max-width: 300px;
+    justify-self: center;
+  }
+  .projectContainer {
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .homeRootContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+  }
+  .profileContainer {
+    width: 100%;
+    height: 180px;
+    min-height: 180px;
+    flex-direction: row;
+    position: relative;
+  }
+  .pictureContainer {
+    width: 240px;
+    height: 100%;
+  }
+  .contactContainer {
+    grid-template-columns: repeat(2, minmax(0, 60px) minmax(115px, 1fr));
+  }
+  .profilePicDetails {
+    align-items: flex-start;
+    padding: 10px 0 0 16px;
+  }
+  .profilePicDetails > h6 {
+    font-size: 28px;
+  }
+  .bodyContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .projectContainer {
+    grid-template-columns: 1fr;
+  }
+  .projectContainer > a:last-child {
+    max-width: unset;
+  }
+}
+@media screen and (max-width: 545px) {
+  .skillsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .icon:last-child {
+    grid-column: unset;
+  }
+  .certificateContainer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .certificateImage {
+    max-width: 250px;
   }
 }
