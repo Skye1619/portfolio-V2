@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import myPic from "./image/pic.jpg";
 import gmail from "./image/gmail.png";
 import github from "./image/github.png";
@@ -10,6 +10,28 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import Carousel from "./Carousel";
 
 function Home() {
+
+  const [prevnext, setPrevnext] = useState(['PREV', 'NEXT'])
+  const [wid, setWid] = useState(window.innerWidth)
+
+  const handleResize = () => {
+    setWid(window.innerWidth)
+  }
+  
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    
+    if (wid <= 545) {
+      setPrevnext('', '')
+    } else {
+      setPrevnext(['PREV', 'NEXT'])
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [wid])
+
   const contactClick = (operation) => {
     if (operation === "gmail") {
       window.open(
@@ -77,7 +99,7 @@ function Home() {
           data-bs-target="#carouselExampleFade"
           data-bs-slide="prev"
         >
-          Prev
+          {prevnext[0]}
         </Button>
         <Button
           id="nextButton"
@@ -85,7 +107,7 @@ function Home() {
           data-bs-target="#carouselExampleFade"
           data-bs-slide="next"
         >
-          Next
+          {prevnext[1]}
         </Button>
         <Carousel />
       </div>
