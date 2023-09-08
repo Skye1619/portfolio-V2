@@ -242,7 +242,7 @@ a {
 }
 .carousel-item-prev,
 .carousel-item-next {
-  animation: fadeIn .5s ease-in-out !important;
+  animation: fadeIn .8s ease-in-out !important;
 }
 
 @keyframes fadeIn {
