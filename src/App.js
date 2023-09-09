@@ -1,5 +1,5 @@
 import "./App.css";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
@@ -7,7 +7,7 @@ import Home from './components/Home';
 
 function App() {
 
-  /* useEffect(() => {
+  useEffect(() => {
     document.addEventListener('contextmenu', function(event) {
       event.preventDefault();
     });
@@ -16,7 +16,7 @@ function App() {
         event.preventDefault();
       }
     })
-  }, []) */
+  }, [])
 
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
