@@ -8,6 +8,7 @@ import { Button, Typography } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import Carousel from "./Carousel";
+import { Padding } from "@mui/icons-material";
 
 function Home() {
   const [prevnext, setPrevnext] = useState(["PREV", "NEXT"]);
@@ -15,6 +16,10 @@ function Home() {
 
   const handleResize = () => {
     setWid(window.innerWidth);
+    const pic = document.querySelector(".profilePic");
+    pic.classList.add(".zoom");
+    zoomPic()
+
   };
 
   useEffect(() => {
@@ -53,37 +58,61 @@ function Home() {
   };
 
   const zoomPic = () => {
-    const pic = document.querySelector('.profilePic')
-    const picContainer = document.querySelector('.pictureContainer')
-    
-    if (pic.classList.contains('.zoom')) {
-      pic.classList.remove('.zoom')
-      picContainer.removeEventListener('click', zoomPic)
-      pic.style.borderRadius = '50%'
-      pic.style.width = '60%'
-      picContainer.style.width = '100%'
-      picContainer.style.height = '220px'
-      picContainer.style.left = '0'
-      picContainer.style.top = '0'
-      picContainer.style.background = 'transparent'
+    const pic = document.querySelector(".profilePic");
+    const picContainer = document.querySelector(".pictureContainer");
+    const profileDetails = document.querySelector('.profilePicDetails')
+
+    if (pic.classList.contains(".zoom")) {
+      pic.classList.remove(".zoom");
+      picContainer.removeEventListener("click", zoomPic);
+      pic.style.borderRadius = "50%";
+
+      if (wid <= 850) {
+        pic.style.width = "100%";
+        picContainer.style.height = "100%";
+        picContainer.style.left = "0";
+        picContainer.style.top = "0";
+        picContainer.style.background = "transparent";
+        picContainer.style.paddingLeft = "5px";
+        if (wid <= 400) {
+          picContainer.style.width = "120px";
+          profileDetails.style.paddingLeft = "120px";
+        } else {
+          picContainer.style.width = "150px";
+          profileDetails.style.paddingLeft = "150px";
+        }
+      } else {
+        pic.style.width = "60%";
+        picContainer.style.width = "100%";
+        picContainer.style.height = "220px";
+        picContainer.style.left = "0";
+        picContainer.style.top = "0";
+        picContainer.style.background = "transparent";
+        profileDetails.style.paddingLeft = '0'
+      }
     } else {
-      picContainer.addEventListener('click', zoomPic)
-      pic.classList.add('.zoom')
-      pic.style.borderRadius = '0'
-      pic.style.width = '40%'
-      picContainer.style.width = '100vw'
-      picContainer.style.height = '100vh'
-      picContainer.style.left = '-16px'
-      picContainer.style.top = '-16px'
-      picContainer.style.background = 'black'
+      picContainer.addEventListener("click", zoomPic);
+      pic.classList.add(".zoom");
+      pic.style.borderRadius = "0";
+      pic.style.width = "40%";
+      picContainer.style.width = "100vw";
+      picContainer.style.height = "100vh";
+      picContainer.style.left = "-16px";
+      picContainer.style.top = "-16px";
+      picContainer.style.background = "black";
     }
-  }
+  };
 
   return (
     <div className="homeRootContainer">
       <div className="profileContainer">
         <div className="pictureContainer">
-          <img src={myPic} alt="Profile Pic" className="profilePic" onClick={zoomPic} />
+          <img
+            src={myPic}
+            alt="Profile Pic"
+            className="profilePic"
+            onClick={zoomPic}
+          />
         </div>
         <div className="profilePicDetails">
           <Typography variant="h6" className="name">

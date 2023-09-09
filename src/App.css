@@ -337,6 +337,7 @@ a {
   .pictureContainer {
     width: 150px;
     height: 100%;
+    padding-left: 5px;
   }
   .profilePic {
     width: 100%;
@@ -351,6 +352,9 @@ a {
   .profilePicDetails {
     align-items: flex-start;
     padding: 10px 0 0 16px;
+    justify-content: flex-start;
+    height: 100%;
+    padding-left: 150px;
   }
   .profilePicDetails > h6 {
     font-size: 28px;
@@ -417,5 +421,14 @@ a {
   }
   .profilePicDetails > h6 {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .pictureContainer {
+    width: 120px;
+  }
+  .profilePicDetails {
+    padding-left: 120px;
   }
 }
