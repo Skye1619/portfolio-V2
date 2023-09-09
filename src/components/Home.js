@@ -66,7 +66,7 @@ function Home() {
       pic.classList.remove(".zoom");
       picContainer.removeEventListener("click", zoomPic);
       pic.style.borderRadius = "50%";
-
+      
       if (wid <= 850) {
         pic.style.width = "100%";
         picContainer.style.height = "100%";
