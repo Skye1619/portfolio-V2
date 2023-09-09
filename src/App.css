@@ -77,7 +77,7 @@ a {
   border: 3px solid #26216199;
 }
 .profilePic:hover {
-  width: 65%;
+  width: 65% !important;
   cursor: pointer;
 }
 .name {
@@ -343,7 +343,7 @@ a {
     width: 100%;
   }
   .profilePic:hover {
-    width: calc(100% + 10px);
+    width: calc(100% + 10px) !important;
     cursor: pointer;
   }
   .contactContainer {
