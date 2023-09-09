@@ -16,15 +16,15 @@ function Home() {
 
   const handleResize = () => {
     setWid(window.innerWidth);
+    
+  };
+  
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
     const pic = document.querySelector(".profilePic");
     pic.classList.add(".zoom");
     zoomPic()
-
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-
+    
     if (wid <= 545) {
       setPrevnext("", "");
     } else {
